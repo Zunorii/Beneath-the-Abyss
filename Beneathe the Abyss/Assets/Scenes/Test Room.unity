@@ -391,6 +391,7 @@ MonoBehaviour:
   runSpeed: 15
   jumpForce: 1700
   dashForce: 1100
+  attackBox: {fileID: 4664918482277267197}
 --- !u!1001 &799039586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -606,7 +607,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.270142, y: 1}
+    m_SensorSize: {x: 1.9921976, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -865,6 +866,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456ec566e4e00494cbc958cea3137780, type: 3}
+--- !u!1 &4664918482277267197 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4664918482927629957, guid: 456ec566e4e00494cbc958cea3137780, type: 3}
+  m_PrefabInstance: {fileID: 4664918482277267196}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5267968996541456062
 PrefabInstance:
   m_ObjectHideFlags: 0
