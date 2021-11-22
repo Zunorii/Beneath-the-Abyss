@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 1700f;
     int jumpCount = 2;
     public float dashForce = 800f;
-
+    public GameObject attackBox;
     private Rigidbody2D playerRb;
     
 
