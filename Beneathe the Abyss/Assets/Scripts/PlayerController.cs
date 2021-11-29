@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 1700f;
     int jumpCount = 2;
     public float dashForce = 800f;
+    public int health = 1;
     public GameObject attackBox;
     private Rigidbody2D playerRb;
     
@@ -38,12 +39,21 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         jumpCount = 2;
-    }
 
+        if (collision.gameObject.tag == "Spikes")
+        {
+            health--;
+        }
+    }
 }
 
