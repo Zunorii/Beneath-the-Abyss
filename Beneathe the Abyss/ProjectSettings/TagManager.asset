@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HealthPU
   - Spikes
+  - Enemy
   layers:
   - Default
   - TransparentFX
