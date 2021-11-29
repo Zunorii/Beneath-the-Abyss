@@ -13,11 +13,13 @@ public class PlayerController : MonoBehaviour
     public int health = 1;
     public GameObject attackBox;
     private Rigidbody2D playerRb;
+    private GameManager gameManager;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         playerRb = GetComponent<Rigidbody2D>();
     }
 
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            gameManager.StartCoroutine("Restart");
         }
 
     }
