@@ -611,8 +611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72860468df041f045bab9c869c0a1dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 15
-  jumpForce: 1700
+  runSpeed: 8
+  jumpForce: 1100
   dashForce: 1100
   attackBox: {fileID: 4664918482277267197}
 --- !u!1001 &799039586
@@ -830,7 +830,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9921976, y: 1}
+    m_SensorSize: {x: 2.270142, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
