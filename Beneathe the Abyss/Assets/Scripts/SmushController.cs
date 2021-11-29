@@ -6,6 +6,14 @@ public class SmushController : MonoBehaviour
 {
 
     public int health = 1;
+    public float speed = 5f;
+    Rigidbody2D myRB;
+
+    void Start()
+    {
+        myRB = GetComponent<Rigidbody2D>();
+    }
+
 
     void Update()
     {
@@ -13,5 +21,8 @@ public class SmushController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        
+
     }
 }
