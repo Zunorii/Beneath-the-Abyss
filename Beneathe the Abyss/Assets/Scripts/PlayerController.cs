@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public GameObject attackBox;
     private Rigidbody2D playerRb;
     private GameManager gameManager;
+
+    public Vector3 playerPos;
     
 
     // Start is called before the first frame update
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerPos = transform.position;
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         transform.Translate(Vector2.right * horizontalMove * Time.deltaTime);
 
@@ -45,6 +48,11 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
             gameManager.StartCoroutine("Death");
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Instantiate(attackBox, playerPos, attackBox.transform.rotation);
         }
 
     }
