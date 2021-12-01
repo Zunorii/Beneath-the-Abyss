@@ -4,23 +4,28 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    //movement and such
     public float runSpeed = 20f;
     float horizontalMove = 0f;
     public float jumpForce = 1700f;
     int jumpCount = 2;
     public float dashForce = 800f;
+    //health variable
     public int health = 1;
-    public GameObject attackBox;
+    //gameobjects and rigidbody
+    public GameObject upAttackBox;
+    public GameObject rightAttackBox;
+    public GameObject leftAttackBox;
     private Rigidbody2D playerRb;
     private GameManager gameManager;
-
+    //player position
     public Vector3 playerPos;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        //Gets gameManager and the players rigidbody
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         playerRb = GetComponent<Rigidbody2D>();
     }
@@ -28,7 +33,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //sets the players position
         playerPos = transform.position;
+        //horizontal input
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         transform.Translate(Vector2.right * horizontalMove * Time.deltaTime);
 
@@ -49,12 +56,23 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
             gameManager.StartCoroutine("Death");
         }
-
+        //attacks
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Instantiate(attackBox, playerPos, attackBox.transform.rotation);
+            upAttackBox.SetActive(true);
+            upAttackBox.SetActive(false);
         }
-
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            leftAttackBox.SetActive(true);
+            leftAttackBox.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            rightAttackBox.SetActive(true);
+            StartCoroutine("WaitFor");
+            rightAttackBox.SetActive(false);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -65,6 +83,16 @@ public class PlayerController : MonoBehaviour
         {
             health--;
         }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            health--;
+        }
     }
+    
+    public IEnumerator WaitFor()
+    {
+        yield return new WaitForSeconds(3);
+    }
+
 }
 
