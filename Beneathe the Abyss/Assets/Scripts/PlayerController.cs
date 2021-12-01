@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-            gameManager.StartCoroutine("Restart");
+            gameManager.StartCoroutine("Death");
         }
 
     }

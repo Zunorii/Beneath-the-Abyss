@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public IEnumerator Restart()
+    public IEnumerator Death()
     {
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
