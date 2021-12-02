@@ -76,7 +76,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        jumpCount = 2;
 
         if (collision.gameObject.tag == "Spikes")
         {
@@ -91,11 +90,19 @@ public class PlayerController : MonoBehaviour
             health--;
         }
     }
-    
+
     public IEnumerator WaitForRetract(GameObject attackBox)
     {
         yield return new WaitForSeconds(.1f);
         attackBox.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "ground")
+        {
+            jumpCount = 2;
+        }
     }
 
 }

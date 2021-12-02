@@ -8,6 +8,8 @@ TagManager:
   - Spikes
   - Enemy
   - attackBox
+  - ground
+  - Explosion
   layers:
   - Default
   - TransparentFX
