@@ -10,6 +10,7 @@ TagManager:
   - attackBox
   - ground
   - Explosion
+  - EndLevel
   layers:
   - Default
   - TransparentFX

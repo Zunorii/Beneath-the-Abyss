@@ -103,6 +103,10 @@ public class PlayerController : MonoBehaviour
         {
             jumpCount = 2;
         }
+        if(collision.gameObject.tag == "EndLevel")
+        {
+            gameManager.MainMenue();
+        }
     }
 
 }
