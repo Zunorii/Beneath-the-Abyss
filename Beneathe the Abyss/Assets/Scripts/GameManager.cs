@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
     }
 
     public void Quit()
@@ -65,6 +66,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Time.timeScale = 1;
     }
 
     public void NextLevel()
@@ -76,5 +78,10 @@ public class GameManager : MonoBehaviour
     {
         paused = false;
         Time.timeScale = 1;
+        PausedText.SetActive(false);
+        QuitButton.SetActive(false);
+        RestartButton.SetActive(false);
+        ResumeButton.SetActive(false);
+        MainMenueButton.SetActive(false);
     }
 }
