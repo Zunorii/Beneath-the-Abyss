@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExplodingMushroomController : MonoBehaviour
 {
     private Collider2D trigger;
+    public ParticleSystem explosionParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,7 @@ public class ExplodingMushroomController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       trigger.enabled = true; 
+       trigger.enabled = true;
+       Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
     }
 }
