@@ -87,6 +87,10 @@ public class PlayerController : MonoBehaviour
         {
             health--;
         }
+        if (collision.gameObject.tag == "Explosion")
+        {
+            health--;
+        }
     }
     
     public IEnumerator WaitFor()
