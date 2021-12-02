@@ -47,4 +47,13 @@ public class SmushController : MonoBehaviour
             myRB.velocity = new Vector2(speed, 0);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "attackBox")
+        {
+            health--;
+        }
+    }
+
 }

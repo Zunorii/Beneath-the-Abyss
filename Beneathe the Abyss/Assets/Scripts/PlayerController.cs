@@ -60,18 +60,17 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             upAttackBox.SetActive(true);
-            upAttackBox.SetActive(false);
+            StartCoroutine("WaitForRetract", upAttackBox);
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             leftAttackBox.SetActive(true);
-            leftAttackBox.SetActive(false);
+            StartCoroutine("WaitForRetract", leftAttackBox);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             rightAttackBox.SetActive(true);
-            StartCoroutine("WaitFor");
-            rightAttackBox.SetActive(false);
+            StartCoroutine("WaitForRetract", rightAttackBox);
         }
     }
 
@@ -93,9 +92,10 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    public IEnumerator WaitFor()
+    public IEnumerator WaitForRetract(GameObject attackBox)
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(.1f);
+        attackBox.SetActive(false);
     }
 
 }
