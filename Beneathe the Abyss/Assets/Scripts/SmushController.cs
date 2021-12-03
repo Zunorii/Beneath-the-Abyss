@@ -38,7 +38,8 @@ public class SmushController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (transform.position.x >= maxPos.x)
+        
+        if(transform.position.x >= maxPos.x)
         {
             myRB.velocity = new Vector2(-speed, 0);
         }
