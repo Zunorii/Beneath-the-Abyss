@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject QuitButton;
     public GameObject RestartButton;
     public GameObject ResumeButton;
-    public GameObject MainMenueButton;
+    public GameObject MainMenuButton;
 
     void Update()
     {
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
                 QuitButton.SetActive(true);
                 RestartButton.SetActive(true);
                 ResumeButton.SetActive(true);
-                MainMenueButton.SetActive(true);
+                MainMenuButton.SetActive(true);
             }
             else if (Input.GetKeyDown(KeyCode.Escape) && paused)
             {
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
                 QuitButton.SetActive(false);
                 RestartButton.SetActive(false);
                 ResumeButton.SetActive(false);
-                MainMenueButton.SetActive(false);
+                MainMenuButton.SetActive(false);
             }
         }
     }
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void MainMenue()
+    public void MainMenu()
     {
         SceneManager.LoadScene(0);
     }
@@ -82,6 +82,6 @@ public class GameManager : MonoBehaviour
         QuitButton.SetActive(false);
         RestartButton.SetActive(false);
         ResumeButton.SetActive(false);
-        MainMenueButton.SetActive(false);
+        MainMenuButton.SetActive(false);
     }
 }

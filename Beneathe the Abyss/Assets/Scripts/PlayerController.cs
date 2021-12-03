@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 1700f;
     int jumpCount = 2;
     public float dashForce = 800f;
+    public bool isMoving = false;
+    public Vector3 lastPos;
     //health variable
     public int health = 1;
     //gameobjects and rigidbody
@@ -17,10 +19,10 @@ public class PlayerController : MonoBehaviour
     public GameObject rightAttackBox;
     public GameObject leftAttackBox;
     private Rigidbody2D playerRb;
+    private Animator anim;
     private GameManager gameManager;
     //player position
     public Vector3 playerPos;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour
         //Gets gameManager and the players rigidbody
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         playerRb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -38,19 +41,19 @@ public class PlayerController : MonoBehaviour
         //horizontal input
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         transform.Translate(Vector2.right * horizontalMove * Time.deltaTime);
-
+        //Jump/Double Jump
         if (Input.GetKeyDown(KeyCode.W) && jumpCount > 0)
         {
             playerRb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpCount--;
         }
-
+        //Dash
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             playerRb.AddForce(Input.GetAxisRaw("Horizontal") * Vector2.right * dashForce, ForceMode2D.Impulse);
 
         }
-
+        //Death
         if (health <= 0)
         {
             Destroy(gameObject);
@@ -72,6 +75,18 @@ public class PlayerController : MonoBehaviour
             rightAttackBox.SetActive(true);
             StartCoroutine("WaitForRetract", rightAttackBox);
         }
+
+        if (playerPos != lastPos)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+
+        lastPos = playerPos;
+        //anim.SetBool("isMoving", isMoving);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -105,7 +120,7 @@ public class PlayerController : MonoBehaviour
         }
         if(collision.gameObject.tag == "EndLevel")
         {
-            gameManager.MainMenue();
+            gameManager.MainMenu();
         }
     }
 

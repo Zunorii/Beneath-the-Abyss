@@ -126,8 +126,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 170
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 1
+  m_AngularDrag: 1
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -150,4 +150,7 @@ MonoBehaviour:
   jumpForce: 1100
   dashForce: 1100
   health: 1
-  attackBox: {fileID: 0}
+  upAttackBox: {fileID: 0}
+  rightAttackBox: {fileID: 0}
+  leftAttackBox: {fileID: 0}
+  playerPos: {x: 0, y: 0, z: 0}
