@@ -85,6 +85,15 @@ public class PlayerController : MonoBehaviour
             isMoving = false;
         }
 
+        if(lastPos.x <= playerPos.x)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if(lastPos.x > playerPos.x)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+
         lastPos = playerPos;
         //anim.SetBool("isMoving", isMoving);
     }
