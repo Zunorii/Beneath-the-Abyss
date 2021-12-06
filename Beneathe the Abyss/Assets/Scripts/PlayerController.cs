@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
         
         if(collision.gameObject.tag == "EndLevel")
         {
-            gameManager.MainMenu();
+            gameManager.NextLevel();
         }
         if (collision.gameObject.tag == "ground")
         {
