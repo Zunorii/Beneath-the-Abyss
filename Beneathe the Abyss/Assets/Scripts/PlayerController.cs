@@ -123,13 +123,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "ground")
-        {
-            jumpCount = 2;
-        }
+        
         if(collision.gameObject.tag == "EndLevel")
         {
             gameManager.MainMenu();
+        }
+        if (collision.gameObject.tag == "ground")
+        {
+            jumpCount = 2;
         }
     }
 
